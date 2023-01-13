@@ -11,6 +11,14 @@ import lombok.Setter;
 @Getter @Setter
 @Entity
 public class User implements Serializable{
+
+    public static User findByUsername() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public static User findByUsernameAndPassword(String username, String password) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

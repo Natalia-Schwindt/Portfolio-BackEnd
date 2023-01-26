@@ -29,23 +29,23 @@ public class Controller {
     @Autowired
     private IPersonaService persoServ;
                 
-    @PostMapping ("/new/Persona")
+    @PostMapping ("/api/Persona/new")
     public void addPersona(@RequestBody Persona p){
        persoServ.crearPersona(p);
     }
     
-    @GetMapping ("/ver/Personas")
+    @GetMapping ("/api/Persona/ver")
     @ResponseBody
     public List<Persona> verPersonas (){
         return persoServ.verPersonas();
     }
     
-    @DeleteMapping ("/delete/Persona/{id}")
+    @DeleteMapping ("/api/Persona/delete/{id}")
     public void deletePersona (@PathVariable Long id) {
         persoServ.deletePersona(id);
     }
     
-    @PutMapping ("/modificar/Persona")
+    @PutMapping ("/api/Persona/modificar")
     @ResponseBody
     public void modificarPersona(@RequestBody Persona p){
         persoServ.savePersona(p);
@@ -53,23 +53,23 @@ public class Controller {
     @Autowired
     private IEducacionService educaServ;
                 
-    @PostMapping ("/new/Educacion")
+    @PostMapping ("/api/Educacion/new")
     public void addEducacion(@RequestBody Educacion e){
        educaServ.crearEducacion(e);
     }
     
-    @GetMapping ("/ver/Educacion")
+    @GetMapping ("/api/Educacion/ver")
     @ResponseBody
     public List<Educacion> verEducacion (){
         return educaServ.verEducacion();
     }
     
-    @DeleteMapping ("/delete/Educacion/{id}")
+    @DeleteMapping ("/api/Educacion/delete/{id}")
     public void deleteEducacion (@PathVariable Long id) {
         educaServ.deleteEducacion(id);
     }
     
-    @PutMapping ("/modificar/Educacion")
+    @PutMapping ("/api/Educacion/modificar")
     @ResponseBody
     public void modificarEducacion(@RequestBody Educacion e){
         educaServ.saveEducacion(e);
@@ -78,23 +78,23 @@ public class Controller {
     @Autowired
     private IExpLabService expLabServ;
                 
-    @PostMapping ("/new/ExpLab")
+    @PostMapping ("/api/ExpLab/new")
     public void addExpLab(@RequestBody ExpLab l){
        expLabServ.crearExpLab(l);
     }
     
-    @GetMapping ("/ver/ExpLab")
+    @GetMapping ("/api/ExpLab/ver")
     @ResponseBody
     public List<ExpLab> verExpLab (){
         return expLabServ.verExpLab();
     }
     
-    @DeleteMapping ("/delete/ExpLab/{id}")
+    @DeleteMapping ("/api/ExpLab/delete/{id}")
     public void deleteExpLab (@PathVariable Long id) {
         expLabServ.deleteExpLab(id);
     }
     
-    @PutMapping ("/modificar/ExpLab")
+    @PutMapping ("/api/ExpLab/modificar")
     @ResponseBody
     public void modificarExpLab(@RequestBody ExpLab l){
         expLabServ.saveExpLab(l);
@@ -102,23 +102,23 @@ public class Controller {
     @Autowired
     private IProyectoService proyecServ;
                 
-    @PostMapping ("/new/Proyecto")
+    @PostMapping ("/api/Proyecto/new")
     public void addProyecto(@RequestBody Proyecto y){
        proyecServ.crearProyecto(y);
     }
     
-    @GetMapping ("/ver/Proyecto")
+    @GetMapping ("/api/Proyecto/ver")
     @ResponseBody
     public List<Proyecto> verProyecto (){
         return proyecServ.verProyecto();
     }
     
-    @DeleteMapping ("/delete/Proyecto/{id}")
+    @DeleteMapping ("/api/Proyecto/delete/{id}")
     public void deleteProyecto (@PathVariable Long id) {
         proyecServ.deleteProyecto(id);
     }
     
-    @PutMapping ("/modificar/Proyecto")
+    @PutMapping ("/api/Proyecto/modificar")
     @ResponseBody
     public void modificarProyecto(@RequestBody Proyecto y){
         proyecServ.saveProyecto(y);
@@ -127,50 +127,40 @@ public class Controller {
     @Autowired
     private ITecnologiaService tecnocServ;
                 
-    @PostMapping ("/new/Tecnologia")
+    @PostMapping ("api/Tecnologia/new")
     public void addTecnologia(@RequestBody Tecnologia t){
        tecnocServ.crearTecnologia(t);
     }
     
-    @GetMapping ("/ver/Tecnologia")
+    @GetMapping ("/api/Tecnologia/ver")
     @ResponseBody
     public List<Tecnologia> verTecnologia (){
         return tecnocServ.verTecnologia();
     }
     
-    @DeleteMapping ("/delete/Tecnologia/{id}")
+    @DeleteMapping ("/api/Tecnologia/delete/{id}")
     public void deleteTecnologia (@PathVariable Long id) {
         tecnocServ.deleteTecnologia(id);
     }
     
-    @PutMapping ("/modificar/Tecnologia")
+    @PutMapping ("/api/Tecnologia/modificar")
     @ResponseBody
     public void modificarTecnologia(@RequestBody Tecnologia t){
         tecnocServ.saveTecnologia(t);
     }
+    
     @Autowired
     private IUserService userServ;
-                
-    @PostMapping ("/new/User")
-    public void addUser(@RequestBody User u){
-       userServ.crearUser(u);
-    }
     
-    @GetMapping ("/ver/User")
+    @GetMapping("/api/User/username")
     @ResponseBody
-    public List<User> verUser (){
-        return userServ.verUser();
+    public User usuario(){
+        return (User.findByUsername());
     }
     
-    @DeleteMapping ("/delete/User/{id}")
-    public void deleteUser (@PathVariable Long id) {
-        userServ.deleteUser(id);
-    }
-    
-    @PutMapping ("/modificar/User")
+    @PostMapping("/api/user/login")
     @ResponseBody
-    public void modificarUser(@RequestBody User u){
-        userServ.saveUser(u);
+    public User login(@RequestBody User us){
+        return (User.findByUsernameAndPassword(us.getUsername(), us.getPassword()));
     }
-    
 }

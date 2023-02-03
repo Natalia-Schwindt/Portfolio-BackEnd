@@ -14,7 +14,7 @@ public class TecnologiaService implements ITecnologiaService{
     
     @Override
     public List<Tecnologia> verTecnologia() {
-        return tecnoRepo.findAll();
+        return (List<Tecnologia>) tecnoRepo.findAll();
     }
 
     @Override

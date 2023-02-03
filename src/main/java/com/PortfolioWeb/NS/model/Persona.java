@@ -1,23 +1,31 @@
 package com.PortfolioWeb.NS.model;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
 @Entity
+@Table(name="persona")
 public class Persona implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id")
     private Long id;
+    @Column(name="nombre")
     private String nombre;
-    private String apellido;  
-    private String titulo;      
+    @Column(name="apellido")
+    private String apellido; 
+    @Column(name="titulo")
+    private String titulo;  
+    @Column(name="urlFoto")
     private String urlFoto;
     
     public Persona() {

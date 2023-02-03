@@ -36,6 +36,4 @@ public class EducacionService implements IEducacionService{
     public void saveEducacion(Educacion e) {
         educaRepo.save(e);
     }
-
-    
 }  

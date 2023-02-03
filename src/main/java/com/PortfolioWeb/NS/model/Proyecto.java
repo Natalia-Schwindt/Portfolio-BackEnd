@@ -1,22 +1,29 @@
 package com.PortfolioWeb.NS.model;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
 @Entity
+@Table(name="proyecto")
 public class Proyecto implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id")
     private Long id;
+    @Column(name="nombre")
     private String nombre;
-    private String estado;  
+    @Column(name="estado")
+    private String estado;
+    @Column(name="descripcion")
     private String descripcion;  
     
     public Proyecto() {

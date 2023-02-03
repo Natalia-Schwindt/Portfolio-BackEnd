@@ -6,6 +6,7 @@ import com.PortfolioWeb.NS.model.Persona;
 import com.PortfolioWeb.NS.model.Proyecto;
 import com.PortfolioWeb.NS.model.Tecnologia;
 import com.PortfolioWeb.NS.model.User;
+import com.PortfolioWeb.NS.repository.UserRepository;
 import com.PortfolioWeb.NS.service.IEducacionService;
 import com.PortfolioWeb.NS.service.IExpLabService;
 import com.PortfolioWeb.NS.service.IPersonaService;
@@ -50,6 +51,8 @@ public class Controller {
     public void modificarPersona(@RequestBody Persona p){
         persoServ.savePersona(p);
     }
+    
+    
     @Autowired
     private IEducacionService educaServ;
                 
@@ -75,6 +78,7 @@ public class Controller {
         educaServ.saveEducacion(e);
     }
     
+    
     @Autowired
     private IExpLabService expLabServ;
                 
@@ -99,6 +103,8 @@ public class Controller {
     public void modificarExpLab(@RequestBody ExpLab l){
         expLabServ.saveExpLab(l);
     }
+    
+    
     @Autowired
     private IProyectoService proyecServ;
                 
@@ -123,6 +129,7 @@ public class Controller {
     public void modificarProyecto(@RequestBody Proyecto y){
         proyecServ.saveProyecto(y);
     }
+    
     
     @Autowired
     private ITecnologiaService tecnocServ;
@@ -149,18 +156,43 @@ public class Controller {
         tecnocServ.saveTecnologia(t);
     }
     
-    @Autowired
-    private IUserService userServ;
     
-    @GetMapping("/api/User/username")
+    @Autowired
+    private UserRepository UserRepository;
+    
+    @GetMapping("/api/User/{id}")
     @ResponseBody
-    public User usuario(){
-        return (User.findByUsername());
+    public User usuario(@PathVariable Long id){
+        return (UserRepository.findById(id).get());
     }
     
-    @PostMapping("/api/user/login")
+    @GetMapping("api/User/username")
     @ResponseBody
-    public User login(@RequestBody User us){
-        return (User.findByUsernameAndPassword(us.getUsername(), us.getPassword()));
+    public User usuario(){
+        return (UserRepository.findByUsername("Natalia Schwindt"));
+    }
+    
+    @PostMapping("/api/User/login")
+    @ResponseBody
+    public User login(@RequestBody User u){
+        return (UserRepository.findByUsernameAndPassword(u.getUsername(), u.getPassword()));
+    }
+    
+    @Autowired
+    private IUserService userServ;
+    @PostMapping("api/User/add")
+    public void addUser(@RequestBody User u){
+        userServ.crearUser(u);
+    }
+    
+    @PutMapping("api/User/edit")
+    @ResponseBody
+    public void modificarUser(@RequestBody User u){
+        userServ.saveUser(u);
+    }
+        
+    @DeleteMapping("api/User/delete/{id}")
+    public void deleteUser(@PathVariable Long id){
+        userServ.deleteUser(id);
     }
 }

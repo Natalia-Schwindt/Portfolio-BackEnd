@@ -24,15 +24,18 @@ public class Proyecto implements Serializable {
     @Column(name="estado")
     private String estado;
     @Column(name="descripcion")
-    private String descripcion;  
+    private String descripcion;
+    @Column (name="persona_id")
+    private Long persona_id;
     
     public Proyecto() {
     }
 
-    public Proyecto(Long id, String nombre, String estado, String descripcion) {
+    public Proyecto(Long id, String nombre, String estado, String descripcion, Long persona_id) {
         this.id = id;
         this.nombre = nombre;
         this.estado = estado;
         this.descripcion = descripcion;
+        this.persona_id = persona_id;
     }
 }

@@ -25,17 +25,17 @@ public class Persona implements Serializable {
     private String apellido; 
     @Column(name="titulo")
     private String titulo;  
-    @Column(name="urlFoto")
-    private String urlFoto;
+    @Column(name="urlfoto")
+    private String urlfoto;
     
     public Persona() {
     }
 
-    public Persona(Long id, String nombre, String apellido, String titulo, String urlFoto) {
+    public Persona(Long id, String nombre, String apellido, String titulo, String urlfoto) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.titulo = titulo;
-        this.urlFoto = urlFoto;
+        this.urlfoto = urlfoto;
     }
 }

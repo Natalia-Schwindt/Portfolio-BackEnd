@@ -3,7 +3,6 @@ package com.PortfolioWeb.NS.service;
 import com.PortfolioWeb.NS.model.Proyecto;
 import java.util.List;
 
-
 public interface IProyectoService {
     
     public List <Proyecto> verProyecto ();

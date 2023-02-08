@@ -19,33 +19,36 @@ public class ExpLab implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id")
     private Long id;
-    @Column(name="nombreEmpresa")
-    private String nombreEmpresa;
+    @Column(name="nombreempresa")
+    private String nombreempresa;
     @Column(name="puesto")
     private String puesto;  
-    @Column(name="esTrabajoActual")
-    private String esTrabajoActual;    
-    @Column(name="fechaInicio")
-    private Integer fechaInicio;
-    @Column(name="fechaFin")
-    private Integer fechaFin;  
+    @Column(name="estrabajoactual")
+    private String estrabajoactual;    
+    @Column(name="fechainicio")
+    private Integer fechainicio;
+    @Column(name="fechafin")
+    private Integer fechafin;  
     @Column(name="descripcion")
     private String descripcion;
-    @Column(name="urlLogo")
-    private String urlLogo;
+    @Column(name="urllogo")
+    private String urllogo;
+    @Column (name="persona_id")
+    private Long persona_id;
 
     public ExpLab() {
     }
 
-    public ExpLab(Long id, String nombreEmpresa, String puesto, String esTrabajoActual, Integer fechaInicio, Integer fechaFin, String descripcion, String urlLogo) {
+    public ExpLab(Long id, String nombreempresa, String puesto, String estrabajoactual, Integer fechainicio, Integer fechafin, String descripcion, String urllogo, Long persona_id) {
         this.id = id;
-        this.nombreEmpresa = nombreEmpresa;
+        this.nombreempresa = nombreempresa;
         this.puesto = puesto;
-        this.esTrabajoActual = esTrabajoActual;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
+        this.estrabajoactual = estrabajoactual;
+        this.fechainicio = fechainicio;
+        this.fechafin = fechafin;
         this.descripcion = descripcion;
-        this.urlLogo = urlLogo;
+        this.urllogo = urllogo;
+        this.persona_id = persona_id;
     }
     
     

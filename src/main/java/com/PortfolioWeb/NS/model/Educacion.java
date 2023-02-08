@@ -19,23 +19,26 @@ public class Educacion implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id")
     private Long id;
-    @Column(name="estudioCursado")
-    private String estudioCursado;
-    @Column(name="nombreInstitucion")
-    private String nombreInstitucion; 
+    @Column(name="estudiocursado")
+    private String estudiocursado;
+    @Column(name="nombreinstitucion")
+    private String nombreinstitucion; 
     @Column(name="año")
     private Integer año;
-    @Column(name="urlLogo")
-    private String urlLogo;
+    @Column(name="urllogo")
+    private String urllogo;
+    @Column (name="persona_id")
+    private Long persona_id;
 
     public Educacion() {
     }
 
-    public Educacion(Long id, String estudioCursado, String nombreInstitucion, Integer año, String urlLogo) {
+    public Educacion(Long id, String estudiocursado, String nombreinstitucion, Integer año, String urllogo, Long persona_id) {
         this.id = id;
-        this.estudioCursado = estudioCursado;
-        this.nombreInstitucion = nombreInstitucion;
+        this.estudiocursado = estudiocursado;
+        this.nombreinstitucion = nombreinstitucion;
         this.año = año;
-        this.urlLogo = urlLogo;
+        this.urllogo = urllogo;
+        this.persona_id = persona_id;
     }
 }

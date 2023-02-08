@@ -22,14 +22,17 @@ public class User implements Serializable{
     @Column(name="username")
     private String username;
     @Column(name="password")
-    private String password; 
+    private String password;
+    @Column (name="persona_id")
+    private Long persona_id;
 
     public User() {
     }
 
-    public User(Long id, String username, String password) {
+    public User(Long id, String username, String password, Long persona_id) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.persona_id = persona_id;
     }
 }

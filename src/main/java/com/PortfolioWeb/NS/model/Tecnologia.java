@@ -21,15 +21,15 @@ public class Tecnologia implements Serializable{
     private Long id;
     @Column(name="nombre")
     private String nombre;
-    @Column(name="porcentajeConocimiento")
-    private Integer porcentajeConocimiento;
+    @Column(name="porcentajeconocimiento")
+    private Integer porcentajeconocimiento;
 
     public Tecnologia() {
     }
 
-    public Tecnologia(Long id, String nombre, Integer porcentajeConocimiento) {
+    public Tecnologia(Long id, String nombre, Integer porcentajeconocimiento) {
         this.id = id;
         this.nombre = nombre;
-        this.porcentajeConocimiento = porcentajeConocimiento;
+        this.porcentajeconocimiento = porcentajeconocimiento;
     }
 }
